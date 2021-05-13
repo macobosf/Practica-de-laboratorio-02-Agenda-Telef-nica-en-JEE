@@ -7,10 +7,10 @@
 <title>Insert title here</title>
 <%@include file="Componentes/estilos.jsp"%>
 </head>
-<body>
+<body style="background-color: #f7faf8;">
 	<%@include file="Componentes/navbar.jsp"%>
 	<div class="conatiner-fluid">
-		<div class="row">
+		<div class="row p-2">
 			<div class="col-md-6 offset-md-3">
 				<div class="card">
 					<div class="card-body">
@@ -52,7 +52,9 @@
 		</div>
 	</div>
 	
+<div style="margin-top: 80px">
 <%@include  file="Componentes/footer.jsp"%>
+</div>
 
 </body>
 </html>

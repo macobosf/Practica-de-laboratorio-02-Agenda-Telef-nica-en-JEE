@@ -20,6 +20,8 @@
 </head>
 <body>
 	<%@include file="Componentes/navbar.jsp" %>
+	
+	
 
 	<div class="container back-img text-center text-success">
 		<h1 class="mt-3">Aplicacion Agenda Telefonica</h1>
