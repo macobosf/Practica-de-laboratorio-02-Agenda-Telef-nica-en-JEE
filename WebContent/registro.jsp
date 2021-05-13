@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@page import="ec.edu.ups.conn.coneccionDb" %>
+	<%@page import="ec.edu.ups.dao.UsuarioDAO" %>
+	<%@page import="ec.edu.ups.servlet.RegistrarseServlet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,30 +18,30 @@
 				<div class="card">
 					<div class="card-body">
 					<h4 class="text-center text-success">Formulario de Registro</h4>
-						<form>
+						<form action="registrar" method="post">
 						<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Ingrese su numero de cedula
-								</label> <input type="text" class="form-control"
+								</label> <input name="cedula" type="text" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Ingrese su Nombre
-								</label> <input type="text" class="form-control"
+								</label> <input name="nombre" type="text" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Ingrese su Apellido
-								</label> <input type="text" class="form-control"
+								</label> <input name="apellido" type="text" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Correo 
-								Electronico</label> <input type="email" class="form-control"
+								Electronico</label> <input  name="correo" type="email" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-								<input type="password" class="form-control"
+								<input name="contrasenia" type="password" class="form-control"
 									id="exampleInputPassword1">
 							</div>
 							<div class="text-center mt-2">

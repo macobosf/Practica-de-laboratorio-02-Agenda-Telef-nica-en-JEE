@@ -1,4 +1,4 @@
-package ec.edu.ups.entidad;
+package ec.edu.ups.modelo;
 
 public class Usuario {
 	private int id;
@@ -6,7 +6,7 @@ public class Usuario {
 	private String nombre;
 	private String apellido;
 	private String correo;
-	private String contraseña;
+	private String contrasenia;
 	
 	public Usuario() {
 		super();
@@ -14,13 +14,13 @@ public class Usuario {
 	
 	
 	
-	public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
+	public Usuario(String cedula, String nombre, String apellido, String correo, String contrasenia) {
 		super();
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.correo = correo;
-		this.contraseña = contraseña;
+		this.contrasenia = contrasenia;
 	}
 
 
@@ -55,13 +55,11 @@ public class Usuario {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	public String getContraseña() {
-		return contraseña;
+	public String getContrasenia() {
+		return contrasenia;
 	}
-	public void setContraseña(String contraseña) {
-		this.contraseña = contraseña;
+	public void setContrasenia(String contrasenia) {
+		this.contrasenia = contrasenia;
 	}
-	
-	
 	
 }

@@ -11,7 +11,7 @@ public class coneccionDb {
 
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hola_mundo", "root", "cuenca.123");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/agenda", "root", "cuenca.123");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
