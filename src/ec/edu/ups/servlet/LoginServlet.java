@@ -6,23 +6,21 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.conn.coneccionDb;
-
 /**
- * Servlet implementation class RegistrarseServlet
+ * Servlet implementation class LoginServlet
  */
-@WebServlet("/registrar")
-public class RegistrarseServlet extends HttpServlet {
+@WebServlet("/login")
+public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public RegistrarseServlet() {
+    public LoginServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,29 +37,20 @@ public class RegistrarseServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String correo = request.getParameter("correo");
+		String contra = request.getParameter("contrasenia");
 		
-		String cedula=request.getParameter("cedula");
-		String nombre=request.getParameter("nombre");
-		String apellido=request.getParameter("apellido");
-		String correo=request.getParameter("correo");
-		String contrasenia=request.getParameter("contrasenia");
+		System.out.println(correo +" "+ contra);
 		
-		Usuario u = new Usuario(cedula, nombre, apellido, correo, contrasenia);
+		UsuarioDAO dao = new UsuarioDAO(coneccionDb.getConn());
+		Usuario u = dao.loginUser(correo, contra);
 		
-		UsuarioDAO dao = new UsuarioDAO (coneccionDb.getConn());
-		boolean f=dao.userRegistrer(u);
-		
-		HttpSession session = request.getSession();
-		
-		if (f) {
-			session.setAttribute("sucssMsg", "Usuario registrado de manera exitosa.");
-			response.sendRedirect("registro.jsp");
-			//System.out.println("Usuario registrado de manera exitosa...");
-		} else {
-			session.setAttribute("errorMsg", "Error en el servidor...");
-			response.sendRedirect("registro.jsp");
-			//System.out.println("Error en el servidor...");
+		if(u != null) {
+			System.out.println("Usuario Correcto" + u);
+		}else {
+			System.out.println("Usuario o Contraseña Incorrecta" + u);
 		}
+		
 	}
 
 }

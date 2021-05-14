@@ -2,6 +2,7 @@ package ec.edu.ups.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import ec.edu.ups.modelo.Usuario;
 
@@ -39,5 +40,34 @@ public class UsuarioDAO {
 		
 	}
 	
+public Usuario loginUser(String e, String p) {
+	
+		Usuario user = null;
+		
+		try {
+			String sql = "select * from usuario where correo=? and contrasenia=?";
+			PreparedStatement ps=conn.prepareStatement(sql);
+			ps.setString(1, e);
+			ps.setString(2, p);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				user=new Usuario();
+				user.setId(rs.getInt(1));
+				user.setCedula(rs.getString(2));
+				user.setNombre(rs.getString(3));
+				user.setApellido(rs.getString(4));
+				user.setCorreo(rs.getString(5));
+				user.setContrasenia(rs.getString(6));
+			}
+			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		
+		return user;
+		
+	}
 	
 }

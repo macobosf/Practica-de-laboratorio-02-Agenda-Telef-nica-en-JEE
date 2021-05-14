@@ -15,15 +15,15 @@
 				<div class="card">
 					<div class="card-body">
 					<h4 class="text-center text-success">Iniciar Sesión</h4>
-						<form>
+						<form action="login" method="post">
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Correo 
-								Electronico</label> <input type="email" class="form-control"
+								Electronico</label> <input name="correo" type="email" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-								<input type="password" class="form-control"
+								<input name="contrasenia" type="password" class="form-control"
 									id="exampleInputPassword1">
 							</div>
 							<div class="text-center mt-2">

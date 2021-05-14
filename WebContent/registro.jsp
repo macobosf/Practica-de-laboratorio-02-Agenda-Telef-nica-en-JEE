@@ -1,8 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@page import="ec.edu.ups.conn.coneccionDb" %>
-	<%@page import="ec.edu.ups.dao.UsuarioDAO" %>
-	<%@page import="ec.edu.ups.servlet.RegistrarseServlet" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +15,24 @@
 				<div class="card">
 					<div class="card-body">
 					<h4 class="text-center text-success">Formulario de Registro</h4>
+					
+					<% String sucssMsg=(String)session.getAttribute("sucssMsg"); 
+					String errorMsg=(String)session.getAttribute("errorMsg");	
+					
+					if(sucssMsg!=null)
+					{%>
+						<p class="text-success text-center"><%=sucssMsg %></p>
+					<%
+					session.removeAttribute("sucssMsg");
+					}
+					
+					if(errorMsg!=null){
+					%>
+						<p class="text-danger text-center"><%=errorMsg %>></p>
+					<%
+					session.removeAttribute("errorMsg");
+					}
+					%>
 						<form action="registrar" method="post">
 						<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Ingrese su numero de cedula
