@@ -52,7 +52,7 @@ public class LoginServlet extends HttpServlet {
 			//System.out.println("Usuario Correcto " + u);
 		}else {
 			session.setAttribute("invalidMsg", "Correo o Contraseña Incorrectos");
-			response.sendRedirect("login.jsp");
+			response.sendRedirect("pagina.jsp");
 			//System.out.println("Usuario o Contraseña Incorrecta " + u);
 		}
 		

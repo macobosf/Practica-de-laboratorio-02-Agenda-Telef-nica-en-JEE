@@ -10,22 +10,18 @@
 	</button>
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		
+		
+		<% Usuario user = (Usuario)session.getAttribute("user"); 
+		if(user==null)
+		{%>
+		
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item active"><a class="nav-link" href="index.jsp"><i class="fas fa-home">
 			</i> Inicio
 					<span class="sr-only">(current)</span>
 			</a></li>
-			<li class="nav-item active"><a class="nav-link"
-				href="añadirContacto.jsp"><i class="fas fa-plus-square">
-				</i> Añadir Numero de Telefono</a></li>
-
-			<li class="nav-item active"><a class="nav-link" href="verContacto.jsp"><i class="fas fa-eye">
-			</i> Ver Contactos</a></li>
 		</ul>
-		
-		<% Usuario user = (Usuario)session.getAttribute("user"); 
-		if(user==null)
-		{%>
 		
 		<form class="form-inline my-2 my-lg-0">
 			<a href="login.jsp" class="btn btn-success"><i class="far fa-user">
@@ -37,6 +33,19 @@
 		<%
 		}else{
 		%>
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item active"><a class="nav-link" href="index.jsp"><i class="fas fa-home">
+			</i> Inicio
+					<span class="sr-only">(current)</span>
+			</a></li>
+			<li class="nav-item active"><a class="nav-link"
+				href="añadirContacto.jsp"><i class="fas fa-plus-square">
+				</i> Añadir Numero de Telefono</a></li>
+
+			<li class="nav-item active"><a class="nav-link" href="verContacto.jsp"><i class="fas fa-eye">
+			</i> Ver Numeros de Telefono</a></li>
+		</ul>
+		
 		<form class="form-inline my-2 my-lg-0">	
 			<button class="btn btn-success"><%=user.getNombre() %> <%=user.getApellido() %> </button>
 			<a href="salir" class="btn btn-danger ml-2">Salir</a>
@@ -44,7 +53,6 @@
 		<%
 		}
 		%>
-		
 		
 	</div>
 </nav>

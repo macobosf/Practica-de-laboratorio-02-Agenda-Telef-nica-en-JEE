@@ -14,7 +14,7 @@
 			<div class="col-md-6 offset-md-3">
 				<div class="card">
 					<div class="card-body">
-					<h4 class="text-center text-success">Añadir Contacto</h4>
+					<h4 class="text-center text-success">Añadir Numero Telefono</h4>
 						<form>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Numero
