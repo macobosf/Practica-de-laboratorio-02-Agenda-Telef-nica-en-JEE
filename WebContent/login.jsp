@@ -26,6 +26,16 @@
 					}
 					%>
 					
+					<%
+					String logMsg=(String)session.getAttribute("logMsg");
+					if(logMsg != null) {
+					%>
+						<p class="text-success text-center"> <%=logMsg %> </p>
+					<%
+					session.removeAttribute("logMsg");
+					}
+					%>
+					
 						<form action="login" method="post">
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Correo 

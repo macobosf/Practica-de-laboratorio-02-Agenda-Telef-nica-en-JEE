@@ -1,3 +1,4 @@
+<%@page import="ec.edu.ups.modelo.Usuario"%>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
 	<a class="navbar-brand" href="index.jsp"><i class="fas fa-phone-square-alt">
 	</i> Agenda Telefonica</a>
@@ -21,11 +22,29 @@
 			<li class="nav-item active"><a class="nav-link" href="verContacto.jsp"><i class="fas fa-eye">
 			</i> Ver Contactos</a></li>
 		</ul>
+		
+		<% Usuario user = (Usuario)session.getAttribute("user"); 
+		if(user==null)
+		{%>
+		
 		<form class="form-inline my-2 my-lg-0">
 			<a href="login.jsp" class="btn btn-success"><i class="far fa-user">
 			</i> Iniciar Sesión</a> 
 			<a href="registro.jsp" class="btn btn-danger ml-2"><i class="fas fa-users">
 			</i> Registrarse</a>
 		</form>
+				
+		<%
+		}else{
+		%>
+		<form class="form-inline my-2 my-lg-0">	
+			<button class="btn btn-success"><%=user.getNombre() %> <%=user.getApellido() %> </button>
+			<a href="salir" class="btn btn-danger ml-2">Salir</a>
+		</form>
+		<%
+		}
+		%>
+		
+		
 	</div>
 </nav>

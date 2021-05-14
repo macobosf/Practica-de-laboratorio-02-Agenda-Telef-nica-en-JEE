@@ -26,10 +26,6 @@
 <body>
 	<%@include file="Componentes/navbar.jsp" %>
 	
-	<% Usuario u =(Usuario)session.getAttribute("user");
-	out.print(u);
-	%>
-	
 	<div class="container back-img text-center text-success">
 		<h1 class="mt-3">Aplicacion Agenda Telefonica</h1>
 	</div>

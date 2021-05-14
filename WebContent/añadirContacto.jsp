@@ -17,17 +17,17 @@
 					<h4 class="text-center text-success">Añadir Contacto</h4>
 						<form>
 							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Nombre
-								</label> <input type="text" class="form-control"
-									id="exampleInputEmail1" aria-describedby="emailHelp">	
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Celular
+								<label for="exampleInputEmail1" class="form-label">Numero
 								</label> <input type="text" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Operadora
+								</label> <input type="text" class="form-control"
+									id="exampleInputEmail1" aria-describedby="emailHelp">	
+							</div>
+							<div class="mb-3">
+								<label for="exampleInputEmail1" class="form-label">Tipo
 								</label> <input type="text" class="form-control"
 									id="exampleInputEmail1" aria-describedby="emailHelp">	
 							</div>

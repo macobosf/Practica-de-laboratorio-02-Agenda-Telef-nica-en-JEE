@@ -2,24 +2,22 @@ package ec.edu.ups.modelo;
 
 public class Telefono {
 	private int id;
-	private String nombre;
-	private String telefono;
+	private String numero;
+	private String tipo;
 	private String operadora;
-	private String info;
-	private int usuarioId;
+	private Usuario usuario;
 	
 	public Telefono() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Telefono(String nombre, String telefono, String operadora, String info, int usuarioId) {
+	public Telefono(String numero, String tipo, String operadora, Usuario usuario) {
 		super();
-		this.nombre = nombre;
-		this.telefono = telefono;
+		this.numero = numero;
+		this.tipo = tipo;
 		this.operadora = operadora;
-		this.info = info;
-		this.usuarioId = usuarioId;
+		this.usuario = usuario;
 	}
 
 	public int getId() {
@@ -30,20 +28,20 @@ public class Telefono {
 		this.id = id;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getNumero() {
+		return numero;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setNumero(String numero) {
+		this.numero = numero;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
 	public String getOperadora() {
@@ -54,20 +52,14 @@ public class Telefono {
 		this.operadora = operadora;
 	}
 
-	public String getInfo() {
-		return info;
+	public Usuario getUsuario() {
+		return usuario;
 	}
 
-	public void setInfo(String info) {
-		this.info = info;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-
-	public int getUsuarioId() {
-		return usuarioId;
-	}
-
-	public void setUsuarioId(int usuarioId) {
-		this.usuarioId = usuarioId;
-	}
-		
+	
+	
+	
 }
