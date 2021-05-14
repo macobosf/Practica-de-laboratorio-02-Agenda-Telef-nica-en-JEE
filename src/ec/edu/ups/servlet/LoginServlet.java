@@ -6,6 +6,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
@@ -40,15 +41,19 @@ public class LoginServlet extends HttpServlet {
 		String correo = request.getParameter("correo");
 		String contra = request.getParameter("contrasenia");
 		
-		System.out.println(correo +" "+ contra);
+		//System.out.println(correo +" "+ contra);
 		
 		UsuarioDAO dao = new UsuarioDAO(coneccionDb.getConn());
 		Usuario u = dao.loginUser(correo, contra);
-		
+		HttpSession session = request.getSession();
 		if(u != null) {
-			System.out.println("Usuario Correcto" + u);
+			session.setAttribute("user", u);
+			response.sendRedirect("index.jsp");
+			//System.out.println("Usuario Correcto " + u);
 		}else {
-			System.out.println("Usuario o Contraseña Incorrecta" + u);
+			session.setAttribute("invalidMsg", "Correo o Contraseña Incorrectos");
+			response.sendRedirect("login.jsp");
+			//System.out.println("Usuario o Contraseña Incorrecta " + u);
 		}
 		
 	}

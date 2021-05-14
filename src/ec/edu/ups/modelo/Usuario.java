@@ -1,7 +1,6 @@
 package ec.edu.ups.modelo;
 
 public class Usuario {
-	private int id;
 	private String cedula;
 	private String nombre;
 	private String apellido;
@@ -24,13 +23,6 @@ public class Usuario {
 	}
 
 
-
-	public int getId() {
-		return id;
-	}
-	public void setId(int id) {
-		this.id = id;
-	}
 	public String getCedula() {
 		return cedula;
 	}
@@ -66,7 +58,7 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [id=" + id + ", cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
+		return "Usuario [ cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido
 				+ ", correo=" + correo + ", contrasenia=" + contrasenia + "]";
 	}
 	

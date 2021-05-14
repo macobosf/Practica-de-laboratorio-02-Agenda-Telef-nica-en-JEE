@@ -15,6 +15,17 @@
 				<div class="card">
 					<div class="card-body">
 					<h4 class="text-center text-success">Iniciar Sesión</h4>
+					
+					<%
+					String invalidMsg=(String)session.getAttribute("invalidMsg");
+					if(invalidMsg != null) {
+					%>
+						<p class="text-danger text-center"> <%=invalidMsg %> </p>
+					<%
+					session.removeAttribute("invalidMsg");
+					}
+					%>
+					
 						<form action="login" method="post">
 							<div class="mb-3">
 								<label for="exampleInputEmail1" class="form-label">Correo 

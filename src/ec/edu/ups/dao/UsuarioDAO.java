@@ -54,12 +54,11 @@ public Usuario loginUser(String e, String p) {
 			
 			while(rs.next()) {
 				user=new Usuario();
-				user.setId(rs.getInt(1));
-				user.setCedula(rs.getString(2));
-				user.setNombre(rs.getString(3));
-				user.setApellido(rs.getString(4));
-				user.setCorreo(rs.getString(5));
-				user.setContrasenia(rs.getString(6));
+				user.setCedula(rs.getString(1));
+				user.setNombre(rs.getString(2));
+				user.setApellido(rs.getString(3));
+				user.setCorreo(rs.getString(4));
+				user.setContrasenia(rs.getString(5));
 			}
 			
 		} catch (Exception e2) {
