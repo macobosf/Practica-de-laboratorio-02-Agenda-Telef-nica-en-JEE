@@ -2,6 +2,9 @@ package ec.edu.ups.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import ec.edu.ups.modelo.Telefono;
 
@@ -35,5 +38,33 @@ public class TelefonoDAO {
 		return f;
 	}
 	
+	public List<Telefono> getAllTelefono(String c){
+		
+		List<Telefono> list = new ArrayList<Telefono>();
+		Telefono t=null;
+		
+		try {
+			String sql = "select * from telefono where fk_cedula=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, c);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				 t = new Telefono();
+				 t.setId(rs.getInt(1));
+				 t.setNumero(rs.getString(2));
+				 t.setTipo(rs.getString(3));
+				 t.setOperadora(rs.getString(4));
+				 list.add(t);
+			}
+			
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+		
+		return list;
+		
+	}
 	
 }
