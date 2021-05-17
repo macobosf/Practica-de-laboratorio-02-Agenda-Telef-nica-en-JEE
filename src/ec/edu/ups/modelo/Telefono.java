@@ -5,19 +5,19 @@ public class Telefono {
 	private String numero;
 	private String tipo;
 	private String operadora;
-	private Usuario usuario;
+	private String cedula;
 	
 	public Telefono() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Telefono(String numero, String tipo, String operadora, Usuario usuario) {
+	public Telefono(String numero, String tipo, String operadora, String cedula) {
 		super();
 		this.numero = numero;
 		this.tipo = tipo;
 		this.operadora = operadora;
-		this.usuario = usuario;
+		this.cedula = cedula;
 	}
 
 	public int getId() {
@@ -52,14 +52,12 @@ public class Telefono {
 		this.operadora = operadora;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+	public String getCedula() {
+		return cedula;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
 	}
-	
-	
 	
 }

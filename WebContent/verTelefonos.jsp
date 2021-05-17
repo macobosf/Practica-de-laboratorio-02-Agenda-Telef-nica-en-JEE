@@ -8,7 +8,14 @@
 <%@include file="Componentes/estilos.jsp"%>
 </head>
 <body>
-<%@include file="Componentes/navbar.jsp" %>
+	<%@include file="Componentes/navbar.jsp"%>
+
+	<%
+		if (user == null) {
+		session.setAttribute("invalidMsg", "Inicie sesion o registrese para continuar.");
+		response.sendRedirect("login.jsp");
+	}
+	%>
 
 </body>
 </html>
