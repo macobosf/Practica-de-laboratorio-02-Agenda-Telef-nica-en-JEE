@@ -19,13 +19,6 @@
 </head>
 <body>
 	<%@include file="Componentes/navbar.jsp"%>
-	<nav class="navbar navbar-light bg-light">
-		<form class="form-inline">
-			<input class="form-control mr-sm-2" type="search"
-				aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
-		</form>
-	</nav>
 
 
 	<%
@@ -53,54 +46,60 @@
 	}
 	%>
 
-	<div class="container">
-		<div class="row p-4">
+	<nav class="navbar navbar-light bg-light">
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="search" aria-label="Search">
+			<a href="<%=user.getCedula()%>"
+				class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</a>
+			<div class="container">
+				<div class="row p-4">
 
+					<%
+						if (user != null) {
 
-			<%
-				if (user != null) {
+						TelefonoDAO dao = new TelefonoDAO(coneccionDb.getConn());
+						List<Telefono> telefono = dao.getAllTelefono(user.getCedula());
 
-				TelefonoDAO dao = new TelefonoDAO(coneccionDb.getConn());
-				List<Telefono> telefono = dao.getAllTelefono(user.getCedula());
+						for (Telefono t : telefono) {
+					%>
+					<div class="col-md-3">
+						<div class="card crd-ho">
+							<div class="card-body">
 
-				for (Telefono t : telefono) {
-			%>
-			<div class="col-md-3">
-				<div class="card crd-ho">
-					<div class="card-body">
-						<h5>
-							<%=user.getNombre()%>
-							<%=user.getApellido()%>
-						</h5>
-						<p>
-							Numero:
-							<%=t.getNumero()%></p>
-						<p>
-							Tipo:
-							<%=t.getTipo()%></p>
-						<p>
-							Operadora:
-							<%=t.getOperadora()%></p>
-						<div class="text-center">
-							<a href="editarTel.jsp?tid=<%=t.getId()%>"
-								class="btn btn-success btn-sm text-white">Editar</a> <a
-								href="borrar?tid=<%=t.getId()%>"
-								class="btn btn-danger btn-sm text-white">Eliminar</a> <a
-								class="btn btn-secondary btn-sm text-white"
-								href="tel:<%=t.getNumero()%>>">Llamar</a>
+								<h5>
+									<%=user.getNombre()%>
+									<%=user.getApellido()%>
+								</h5>
+								<p>
+									Numero:
+									<%=t.getNumero()%></p>
+								<p>
+									Tipo:
+									<%=t.getTipo()%></p>
+								<p>
+									Operadora:
+									<%=t.getOperadora()%></p>
+								<div class="text-center">
+									<a href="editarTel.jsp?tid=<%=t.getId()%>"
+										class="btn btn-success btn-sm text-white">Editar</a> <a
+										href="borrar?tid=<%=t.getId()%>"
+										class="btn btn-danger btn-sm text-white">Eliminar</a> <a
+										class="btn btn-secondary btn-sm text-white"
+										href="tel:<%=t.getNumero()%>>">Llamar</a>
+								</div>
+							</div>
 						</div>
 					</div>
+					<%
+						}
+					}
+					%>
+
 				</div>
 			</div>
-			<%
-				}
-			}
-			%>
 
-
-
-		</div>
-	</div>
+		</form>
+	</nav>
 
 	<%@include file="Componentes/footer.jsp"%>
 

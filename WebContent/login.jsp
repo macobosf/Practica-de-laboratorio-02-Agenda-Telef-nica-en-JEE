@@ -41,30 +41,29 @@
 						%>
 
 						<form action="login" method="post">
-							<div class="mb-3">
-								<label for="exampleInputEmail1" class="form-label">Correo
-									Electronico</label> <input name="correo" type="email"
-									class="form-control" id="email" aria-describedby="emailHelp">
-								<span id="emailOK"></span>
-							</div>
-							<div class="mb-3">
-								<label for="exampleInputPassword1" class="form-label">Contraseña</label>
-								<input name="contrasenia" type="password" class="form-control"
-									id="txtPassword">
-								<button id="show_password" class="btn btn-primary" type="button"
-									onclick="mostrarPassword()">
-									<span class="fa fa-eye-slash icon"></span>
-								</button>
-							</div>
-							<div class="text-center mt-2">
-								<button type="submit" class="btn btn-primary">Ingresar</button>
-							</div>
-						</form>
-
+							<div class="mb-3"> <label for="exampleInputEmail1"
+								class="form-label">Correo Electronico</label> <input
+								name="correo" type="email" class="form-control" id="email"
+								aria-describedby="emailHelp"> <span id="emailOK"></span>
 					</div>
+					<div class="mb-3">
+						<label for="exampleInputPassword1" class="form-label">Contraseña</label>
+						<input name="contrasenia" type="password" class="form-control"
+							id="txtPassword">
+						<button id="show_password" class="btn btn-primary" type="button"
+							onclick="mostrarPassword()">
+							<span class="fa fa-eye-slash icon"></span>
+						</button>
+					</div>
+					<div class="text-center mt-2">
+						<button type="submit" class="btn btn-primary">Ingresar</button>
+					</div>
+					</form>
+
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 	<script type="text/javascript">

@@ -135,8 +135,15 @@ public class TelefonoDAO {
 	}
 	
 	/*public List buscar(String t){
-		List
+		List<Telefono> list = new ArrayList<>();
+		String sql = "select * from telefono where fk_cedula=?";
 		
+		try {
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, c);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 		
 	}*/
 	
