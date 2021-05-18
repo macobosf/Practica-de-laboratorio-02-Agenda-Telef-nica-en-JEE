@@ -1,4 +1,4 @@
-package ec.edu.ups.servlet;
+package ec.edu.ups.filtro;
 
 import java.io.IOException;
 import javax.servlet.Filter;

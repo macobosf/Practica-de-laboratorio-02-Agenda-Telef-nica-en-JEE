@@ -134,4 +134,10 @@ public class TelefonoDAO {
 		return f;
 	}
 	
+	/*public List buscar(String t){
+		List
+		
+		
+	}*/
+	
 }

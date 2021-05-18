@@ -19,6 +19,13 @@
 </head>
 <body>
 	<%@include file="Componentes/navbar.jsp"%>
+	<nav class="navbar navbar-light bg-light">
+		<form class="form-inline">
+			<input class="form-control mr-sm-2" type="search"
+				aria-label="Search">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+		</form>
+	</nav>
 
 
 	<%
@@ -78,8 +85,9 @@
 							<a href="editarTel.jsp?tid=<%=t.getId()%>"
 								class="btn btn-success btn-sm text-white">Editar</a> <a
 								href="borrar?tid=<%=t.getId()%>"
-								class="btn btn-danger btn-sm text-white">Eliminar</a>
-							<a class="btn btn-secondary btn-sm text-white" href="tel:<%=t.getNumero() %>>" >Llamar</a>
+								class="btn btn-danger btn-sm text-white">Eliminar</a> <a
+								class="btn btn-secondary btn-sm text-white"
+								href="tel:<%=t.getNumero()%>>">Llamar</a>
 						</div>
 					</div>
 				</div>
@@ -94,7 +102,7 @@
 		</div>
 	</div>
 
-<%@include  file="Componentes/footer.jsp"%>
+	<%@include file="Componentes/footer.jsp"%>
 
 </body>
 </html>
