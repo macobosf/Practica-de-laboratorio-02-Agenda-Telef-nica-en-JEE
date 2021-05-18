@@ -47,11 +47,13 @@
 		</ul>
 
 		<form class="form-inline my-2 my-lg-0">
+			<a href="mailto:<%=user.getCorreo()%>" type="button" class="btn btn-secondary ml-2">Mensaje</a>
 			<button class="btn btn-success"><%=user.getNombre()%>
 				<%=user.getApellido()%>
 			</button>
 			<a data-toggle="modal" data-target="#exampleModalCenter" href="salir"
 				class="btn btn-danger ml-2">Salir</a>
+			
 		</form>
 		<%
 			}

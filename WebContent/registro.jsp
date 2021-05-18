@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Registro Usuario</title>
 <%@include file="Componentes/estilos.jsp"%>
 </head>
 <body style="background-color: #f7faf8;">

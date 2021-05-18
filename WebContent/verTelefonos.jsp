@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Ver Telefonos</title>
 <%@include file="Componentes/estilos.jsp"%>
 <style type="text/css">
 .crd-ho:hover {
@@ -79,6 +79,7 @@
 								class="btn btn-success btn-sm text-white">Editar</a> <a
 								href="borrar?tid=<%=t.getId()%>"
 								class="btn btn-danger btn-sm text-white">Eliminar</a>
+							<a class="btn btn-secondary btn-sm text-white" href="tel:<%=t.getNumero() %>>" >Llamar</a>
 						</div>
 					</div>
 				</div>
@@ -92,6 +93,8 @@
 
 		</div>
 	</div>
+
+<%@include  file="Componentes/footer.jsp"%>
 
 </body>
 </html>
