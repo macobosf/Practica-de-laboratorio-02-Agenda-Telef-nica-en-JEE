@@ -11,16 +11,15 @@
 <title>Insert title here</title>
 <%@include file="Componentes/estilos.jsp"%>
 <style type="text/css">
-.crd-ho:hover{
+.crd-ho:hover {
 	background-color: #f7f7f7;
-	
 }
-
 </style>
 
 </head>
 <body>
 	<%@include file="Componentes/navbar.jsp"%>
+
 
 	<%
 		if (user == null) {
@@ -28,43 +27,71 @@
 		response.sendRedirect("login.jsp");
 	}
 	%>
-	
+
+	<%
+		String succMsg = (String) session.getAttribute("succMsg");
+	String failMsg = (String) session.getAttribute("failMsg");
+	if (succMsg != null) {
+	%>
+	<div class="alert alert-warning" role="alert">Borrado Exitoso</div>
+	<%
+		session.removeAttribute("succMsg");
+	}
+	if (failMsg != null) {
+	%>
+	<p class="text-danger text-center"><%=failMsg%>
+	</p>
+	<%
+		session.removeAttribute("failMsg");
+	}
+	%>
+
 	<div class="container">
 		<div class="row p-4">
-			<div class="col-md-3">
-			
-				<%
-				
+
+
+			<%
 				if (user != null) {
-				
+
 				TelefonoDAO dao = new TelefonoDAO(coneccionDb.getConn());
 				List<Telefono> telefono = dao.getAllTelefono(user.getCedula());
-				
-				for (Telefono t : telefono)
-				{%>
-					
+
+				for (Telefono t : telefono) {
+			%>
+			<div class="col-md-3">
 				<div class="card crd-ho">
 					<div class="card-body">
-						<h5> <%=user.getNombre()%> <%=user.getApellido()%> </h5>
-						<p>Numero: <%= t.getNumero()%></p>
-						<p>Tipo: <%= t.getTipo()%></p>
-						<p>Operadora: <%= t.getOperadora()%></p>
+						<h5>
+							<%=user.getNombre()%>
+							<%=user.getApellido()%>
+						</h5>
+						<p>
+							Numero:
+							<%=t.getNumero()%></p>
+						<p>
+							Tipo:
+							<%=t.getTipo()%></p>
+						<p>
+							Operadora:
+							<%=t.getOperadora()%></p>
 						<div class="text-center">
-							<a class="btn btn-success btn-sm text-white">Editar</a>
-							<a class="btn btn-danger btn-sm text-white">Eliminar</a>
+							<a href="editarTel.jsp?tid=<%=t.getId()%>"
+								class="btn btn-success btn-sm text-white">Editar</a> <a
+								href="borrar?tid=<%=t.getId()%>"
+								class="btn btn-danger btn-sm text-white">Eliminar</a>
 						</div>
 					</div>
 				</div>
-					
-				<%
-				}
-				}
-				%>
-			
-				
 			</div>
+			<%
+				}
+			}
+			%>
+
+
+
 		</div>
 	</div>
-	
+
 </body>
 </html>

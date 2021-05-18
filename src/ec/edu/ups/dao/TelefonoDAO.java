@@ -67,4 +67,71 @@ public class TelefonoDAO {
 		
 	}
 	
+	public Telefono getTelefonoByID(int tid) {
+		
+		Telefono t = new Telefono();
+		try {
+			PreparedStatement ps = conn.prepareStatement("select * from telefono where id=?");
+			ps.setInt(1, tid);
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				t.setId(rs.getInt(1));
+				t.setNumero(rs.getString(2));
+				t.setTipo(rs.getString(3));
+				t.setOperadora(rs.getString(4));
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return t;
+	}
+	
+	public boolean updateTelefono(Telefono t) {
+		boolean f=false;
+		try {
+			String sql = "update telefono set numero=?, tipo=?, operadora=? where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setString(1, t.getNumero());
+			ps.setString(2, t.getTipo());
+			ps.setString(3, t.getOperadora());	
+			ps.setInt(4, t.getId());
+			
+			int i = ps.executeUpdate();
+			
+			if(i==1) {
+				f=true;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return f;
+	}
+	
+	public boolean eliminarTelefono(int id) {
+		
+		boolean f= false;
+		
+		try {
+			
+			String sql = "delete from telefono where id=?";
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setInt(1, id);
+			
+			int i = ps.executeUpdate();
+			
+			if (i==1) {
+				f = true;
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return f;
+	}
+	
 }
